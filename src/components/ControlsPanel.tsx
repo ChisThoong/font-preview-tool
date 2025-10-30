@@ -78,7 +78,6 @@ export const ControlsPanel: React.FC<ControlsPanelProps> = ({
 
   return (
     <div className="flex flex-col h-full">
-      <h1 className="hidden lg:block text-3xl font-bold text-cyan-400 mb-8">Font Preview Tool</h1>
       
       <ControlSection title="Text & Font">
         <LabeledControl label="Text Content" htmlFor="text-input">

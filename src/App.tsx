@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback, useRef } from 'react';
 import { toPng, toJpeg } from 'html-to-image';
 import { ControlsPanel } from './components/ControlsPanel';
@@ -108,33 +107,42 @@ const App: React.FC = () => {
   const allFonts = [...DEFAULT_FONTS, ...uploadedFonts.map(f => ({ name: f.name, family: f.name }))];
 
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-200 font-sans flex flex-col lg:flex-row">
-      <header className="bg-gray-800/50 backdrop-blur-sm border-b border-gray-700 p-4 lg:hidden sticky top-0 z-10">
-        <h1 className="text-2xl font-bold text-center text-cyan-400">Font Preview Tool</h1>
+    <div className="min-h-screen bg-gray-900 text-gray-200 font-sans flex flex-col">
+      {/* Header ở trên cùng giữa màn hình */}
+      <header className="bg-gray-800/50 backdrop-blur-sm border-b border-gray-700 p-6">
+        <h1 className="text-3xl font-bold text-center text-cyan-400">FONT PREVIEW</h1>
+        <p className="text-sm text-gray-400 text-center mt-1">tool by chisthongg</p>
       </header>
-      <div className="w-full lg:w-[380px] lg:min-w-[380px] bg-gray-800 p-6 lg:h-screen lg:overflow-y-auto">
-        <ControlsPanel
-          text={text}
-          setText={setText}
-          textOptions={textOptions}
-          setTextOptions={setTextOptions}
-          backgroundOptions={backgroundOptions}
-          setBackgroundOptions={setBackgroundOptions}
-          allFonts={allFonts}
-          onFontUpload={handleFontUpload}
-          onDownload={handleDownload}
-          isLoading={isLoading}
-          onResetEffects={handleResetEffects}
-        />
+      
+      {/* Content chia đôi: trái là settings, phải là preview */}
+      <div className="flex-1 flex flex-col lg:flex-row">
+        {/* Bên trái: Settings Panel */}
+        <div className="w-full lg:w-1/2 bg-gray-800 p-6 overflow-y-auto">
+          <ControlsPanel
+            text={text}
+            setText={setText}
+            textOptions={textOptions}
+            setTextOptions={setTextOptions}
+            backgroundOptions={backgroundOptions}
+            setBackgroundOptions={setBackgroundOptions}
+            allFonts={allFonts}
+            onFontUpload={handleFontUpload}
+            onDownload={handleDownload}
+            isLoading={isLoading}
+            onResetEffects={handleResetEffects}
+          />
+        </div>
+        
+        {/* Bên phải: Preview Area */}
+        <main className="flex-1 lg:w-1/2 flex items-center justify-center p-4 bg-gray-900">
+          <PreviewArea
+            ref={previewRef}
+            text={text}
+            textOptions={textOptions}
+            backgroundOptions={backgroundOptions}
+          />
+        </main>
       </div>
-      <main className="flex-1 flex items-center justify-center p-4 md:p-8 bg-gray-900">
-        <PreviewArea
-          ref={previewRef}
-          text={text}
-          textOptions={textOptions}
-          backgroundOptions={backgroundOptions}
-        />
-      </main>
     </div>
   );
 };
