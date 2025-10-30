@@ -1,0 +1,5 @@
+{
+    "name": "Font Text Generator & Preview Tool",
+    "description": "A simple, modern web tool that allows users to upload custom fonts or select from a list of pre-defined fonts, enter custom text, and preview the result. Users can customize font size, color, alignment, background, and apply effects like shadow and outline. The final design can be downloaded as a PNG or JPG image.",
+    "requestFramePermissions": []
+  }
