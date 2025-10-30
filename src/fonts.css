@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'ICIEL Bambola';
+  src: url('./fonts/ICIEL-Bambola.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DFVN OceanRush Regular';
+  src: url('./fonts/DFVN-OceanRush-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}

@@ -1,9 +1,16 @@
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { toPng, toJpeg } from 'html-to-image';
 import { ControlsPanel } from './components/ControlsPanel';
 import { PreviewArea } from './components/PreviewArea';
 import type { TextOptions, BackgroundOptions, UploadedFont } from './types';
 import { DEFAULT_FONTS } from './constants';
+import './fonts.css';
+
+// Local fonts được load từ CSS
+const LOCAL_FONTS = [
+  { name: 'ICIEL Bambola', family: 'ICIEL Bambola' },
+  { name: 'DFVN OceanRush Regular', family: 'DFVN OceanRush Regular' }
+];
 
 const DEFAULT_SHADOW: TextOptions['shadow'] = {
   enabled: true,
@@ -104,19 +111,19 @@ const App: React.FC = () => {
     }));
   }, []);
 
-  const allFonts = [...DEFAULT_FONTS, ...uploadedFonts.map(f => ({ name: f.name, family: f.name }))];
+  const allFonts = [...DEFAULT_FONTS, ...LOCAL_FONTS, ...uploadedFonts.map(f => ({ name: f.name, family: f.name }))];
 
   return (
     <div className="min-h-screen bg-gray-900 text-gray-200 font-sans flex flex-col">
-      {/* Header ở trên cùng giữa màn hình */}
+      
       <header className="bg-gray-800/50 backdrop-blur-sm border-b border-gray-700 p-6">
-        <h1 className="text-3xl font-bold text-center text-cyan-400">FONT PREVIEW</h1>
+        <h1 className="text-3xl font-bold text-center text-cyan-400">Font Preview Tool</h1>
         <p className="text-sm text-gray-400 text-center mt-1">tool by chisthongg</p>
       </header>
       
-      {/* Content chia đôi: trái là settings, phải là preview */}
+    
       <div className="flex-1 flex flex-col lg:flex-row">
-        {/* Bên trái: Settings Panel */}
+    
         <div className="w-full lg:w-1/2 bg-gray-800 p-6 overflow-y-auto">
           <ControlsPanel
             text={text}
@@ -134,7 +141,7 @@ const App: React.FC = () => {
         </div>
         
         {/* Bên phải: Preview Area */}
-        <main className="flex-1 lg:w-1/2 flex items-center justify-center p-4 bg-gray-900">
+        <main className="flex-1 lg:w-1/2 flex items-center justify-center p-8 bg-gray-900">
           <PreviewArea
             ref={previewRef}
             text={text}
