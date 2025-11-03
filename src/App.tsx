@@ -9,7 +9,8 @@ import './fonts.css';
 // Local fonts được load từ CSS
 const LOCAL_FONTS = [
   { name: 'ICIEL Bambola', family: 'ICIEL Bambola' },
-  { name: 'DFVN OceanRush Regular', family: 'DFVN OceanRush Regular' }
+  { name: 'DFVN OceanRush Regular', family: 'DFVN OceanRush Regular' },
+  { name: 'UVF Pistilli Roman', family: 'UVF Pistilli Roman' }
 ];
 
 const DEFAULT_SHADOW: TextOptions['shadow'] = {
