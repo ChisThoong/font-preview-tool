@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef, useEffect } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import { toPng, toJpeg } from 'html-to-image';
 import { ControlsPanel } from './components/ControlsPanel';
 import { PreviewArea } from './components/PreviewArea';

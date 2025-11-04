@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
-import type { TextOptions, BackgroundOptions, Font, TextAlign } from '../types';
-import { UploadIcon, AlignLeftIcon, AlignCenterIcon, AlignRightIcon, DownloadIcon, CopyIcon, LoadingIcon } from './icons';
+import type { TextOptions, BackgroundOptions, Font } from '../types';
+import { UploadIcon, DownloadIcon, CopyIcon, LoadingIcon } from './icons';
 
 interface ControlsPanelProps {
   text: string;
